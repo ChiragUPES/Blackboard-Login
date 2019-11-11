@@ -11,6 +11,7 @@ $mail=mysqli_real_escape_string($con,$mail);
 $pass = $_POST['pass'];
 $pass = mysqli_real_escape_string($con, $pass);
 $pass = MD5($pass);
+
 $query = "SELECT * FROM user_data WHERE mail= '$mail' AND pass= '$pass '";
 $result = mysqli_query($con, $query)or die(mysqli_error($con));
 if(mysqli_num_rows($result)>0)
@@ -23,7 +24,7 @@ else
 ?>	<script>
 	alert("Username or pass is incorrect");
 	</script>
-*/  $message = "Username and/or Password incorrect.\\nTry again.";
+*/  $message = "Username or Password incorrect.\\nTry again.";
   echo "<script type='text/javascript'>alert('$message');</script>";
 }
 ?>
